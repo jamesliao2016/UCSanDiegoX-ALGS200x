@@ -4,21 +4,19 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 public class LastDigOfLargeFib {
+    static double sqrtFive = Math.sqrt(5);
+
     private static BigInteger calc_fib(int n) {
-        // The first and second Fibonacci nums are 1 (lecture states 0, 1, 1 but that fails the grading system)
         if (n <= 1) {
-            return BigInteger.valueOf(1);
+            return BigInteger.valueOf(n);
         }
-        // create array of size n
-        BigInteger[] fib = new BigInteger[n];
-        fib[0] = BigInteger.valueOf(1);
-        fib[1] = BigInteger.valueOf(1);
-        // build array by adding 2 previous elements together
-        for (int i = 2; i < n; i++){
-            fib[i] = fib[i-1].add(fib[i-2]);
-        }
-        // last array element is requested Fibonacci num, mod 10 returns last digit
-        return fib[n-1].mod(BigInteger.valueOf(10));
+        // Approx value of golden ratio, used mathematically to evaluate n-th fibonacci
+        double bigPhi = 1.6180339;
+        double littlePhi = -1/bigPhi;
+        // must round up for it to be correct
+        BigInteger theFib = BigInteger.valueOf(Math.round((Math.pow(bigPhi, n) - Math.pow(littlePhi, n)) / sqrtFive));
+
+        return theFib.mod(BigInteger.valueOf(10));
     }
 
     public static void main(String args[]) {
