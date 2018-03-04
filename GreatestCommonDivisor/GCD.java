@@ -7,8 +7,8 @@ import java.util.Scanner;
  */
 public class GCD {
     private static int findGCD(int a, int b) {
-        int minNum = -1;
-        int maxNum = -1;
+        int minNum;
+        int maxNum;
         if (a == b){
             return a;
         } else {
