@@ -15,15 +15,14 @@ public class GCD {
             //assign min & max
             minNum = (a < b) ? a : b;
             maxNum = (b < a) ? a : b;
-            // initialized to arbitrary invalid int
+            // remainder initialized to arbitrary invalid int
             int rem = -1;
+            // Euclidean algorithm: keep dividing max by min and replacing max with remainder until it's zero
             while (rem != 0){
-                // divide maxNum by minNum and get remainder
                 rem = maxNum % minNum;
                 if (rem == 0){
                     return minNum;
                 }
-                // rem replaces original maxNum & we reassign vars.
                 maxNum = minNum;
                 minNum = rem;
             }
