@@ -15,7 +15,7 @@ public class LastDigOfLargeFib {
             return BigInteger.valueOf(n);
         } else if (n > 1 && n <= 28) {
             // golden ratio works up to 28
-            // must round up for it to be correct
+            // must round up (to an int) to work
             theFib = BigInteger.valueOf(Math.round((Math.pow(bigPhi, n) - Math.pow(littlePhi, n)) / sqrtFive));
             return theFib.mod(BigInteger.valueOf(10));
         } else { //if (n > 28)
