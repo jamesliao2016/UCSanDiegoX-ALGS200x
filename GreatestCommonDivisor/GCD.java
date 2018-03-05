@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Using Euclidean algorithm to find the greatest common divisor of two integers ≤ 2 · 10^9
  */
 public class GCD {
-    private static int findGCD(int a, int b) {
+    public static int findGCD(int a, int b) {
         int minNum;
         int maxNum;
         if (a == b){
